@@ -1,3 +1,7 @@
+
+import { Routes, Route } from "react-router-dom";
+// import SharedLayout from './SharedLayout/SharedLayout';
+
 export const App = () => {
   return (
     <div
@@ -10,6 +14,10 @@ export const App = () => {
         color: '#010101'
       }}
     >
+
+      <Routes>
+        <Route  path='/' element={<p>fhjfjhjgjgj</p>} />
+      </Routes>
       React homework template
     </div>
   );
