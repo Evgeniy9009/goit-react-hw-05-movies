@@ -1,5 +1,5 @@
 
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 // import SharedLayout from './SharedLayout/SharedLayout';
 
 export const App = () => {
@@ -15,9 +15,9 @@ export const App = () => {
       }}
     >
 
-      <Routes>
+      {/* <Routes>
         <Route  path='/' element={<p>fhjfjhjgjgj</p>} />
-      </Routes>
+      </Routes> */}
       React homework template
     </div>
   );
