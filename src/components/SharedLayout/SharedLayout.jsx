@@ -1,7 +1,12 @@
+import Navbar from 'components/Navbar/Navbar'
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-export default function SharedLayout() {
+export default function SharedLayout () {
   return (
-    <div>SharedLayout</div>
+    <div>
+          <Navbar />
+          <Outlet/>
+    </div>
   )
 }
