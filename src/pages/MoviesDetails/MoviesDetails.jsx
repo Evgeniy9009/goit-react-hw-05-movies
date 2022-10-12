@@ -44,7 +44,7 @@ export default function MoviesDetails() {
   let res = URL + backdrop_path
   
   const castId = nanoid()
-  const revievsId = nanoid()
+  const reviewsId = nanoid()
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function MoviesDetails() {
           </div>
           <h3>Additional information
             <li key={castId} ><Link to="cast" state={{from: cameBack}}>Cast</Link></li>
-            <li key={revievsId} ><Link to="revievs" state={{from: cameBack}}>Revievs</Link></li>
+            <li key={reviewsId} ><Link to="revievs" state={{from: cameBack}}>Reviews</Link></li>
           </h3>
         </div>
       }

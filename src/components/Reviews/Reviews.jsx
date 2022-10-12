@@ -31,7 +31,7 @@ export default function Revievs() {
 
     const elements = state?.map(({ author, content }) =>
         <li key={author}>
-            <p>{author}</p>
+            <h3>{author}</h3>
             <p>{content }</p>
 
         </li>)

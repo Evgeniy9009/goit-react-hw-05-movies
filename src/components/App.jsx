@@ -5,7 +5,7 @@ import { lazy } from "react";
 // import Movies from "pages/Movies/Movies";
 // import MoviesDetails from "pages/MoviesDetails/MoviesDetails";
 import Cast from "./Cast/Cast";
-import Revievs from "./Revievs/Revievs";
+import Revievs from "./Reviews/Reviews";
 import SharedLayout from "./SharedLayout/SharedLayout";
 
 

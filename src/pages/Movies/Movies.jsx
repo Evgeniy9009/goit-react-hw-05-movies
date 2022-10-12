@@ -19,7 +19,7 @@ export default function Movies() {
   console.log("searchParams", searchParams)
 
   const searchQuery = searchParams.get("searchQuery")
-  console.log("searchQuery", searchQuery.get)
+
 
   useEffect(() => {
     if (!searchQuery  ) { return }
