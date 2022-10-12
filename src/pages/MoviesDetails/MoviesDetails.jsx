@@ -1,21 +1,22 @@
 import Loading from 'components/Loading/Loading'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams, Link, Outlet } from 'react-router-dom'
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom'
 import { getPostsById } from 'shared/API/post'
 import css from "pages/MoviesDetails/MoviesDetails.module.css"
-
-
+import { nanoid } from 'nanoid'
 
 export default function MoviesDetails() {
 
   const [state, setState] = useState({})
-    const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   
   const {id} = useParams()
-  // console.log(id)
-  const navigate = useNavigate()
+
+  const location = useLocation()
+  console.log("location", location)
+  const cameBack = location.state?.from ?? "/"
  
     useEffect(() => {
       const fetchPosts = async () => {
@@ -23,7 +24,6 @@ export default function MoviesDetails() {
           try {
             setError(null)            
             const data = await getPostsById(id)
-            // console.log("data", data)
             setState(data)
           } catch (error) {
               setError(error)
@@ -33,34 +33,25 @@ export default function MoviesDetails() {
         }
         fetchPosts()
     }, [id])
-  
-  const goBack = () => navigate(-1)
-  // const goPosts = () => navigate("/movies")
-  
-  // console.log("state", state)
-  
-  // const elements = items.map(({ title, id, backdrop_path, overview, release_date, genre_ids, vote_average }) => 
-              
+
   const { title, backdrop_path, overview, release_date, genres, popularity } = state 
   
-  // let today = new Date()
-  // let y = today.getFullYear()
-  // console.log(today)
-  // console.log(release_date)
-
-  
   const elements = genres?.map(({name}) => 
-    <span>{name } </span>)
+    <span key={nanoid()}>{name } </span>)
   console.log(elements)
 
   const URL = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"
-let res = URL+backdrop_path
+  let res = URL + backdrop_path
+  
+  const castId = nanoid()
+  const revievsId = nanoid()
+
   return (
     <>
       {loading && <Loading />}
       {error && <p>Something went wrong</p>}
       <div>
-        <button onClick={goBack}>Go back</button>
+        <Link to={cameBack}>Go back</Link>
       </div>
       
       {state &&
@@ -78,10 +69,10 @@ let res = URL+backdrop_path
               <p>{elements}</p>
             </div>
           </div>
-          <ul>Additional information
-            <li><Link to="cast">Cast</Link></li>
-            <li><Link to="revievs">Revievs</Link></li>
-          </ul>
+          <h3>Additional information
+            <li key={castId} ><Link to="cast" state={{from: cameBack}}>Cast</Link></li>
+            <li key={revievsId} ><Link to="revievs" state={{from: cameBack}}>Revievs</Link></li>
+          </h3>
         </div>
       }
         <Outlet/>

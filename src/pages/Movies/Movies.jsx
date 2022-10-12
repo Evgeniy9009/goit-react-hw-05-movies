@@ -44,7 +44,7 @@ export default function Movies() {
       {loading && <Loading />}
       {error && <p>Что-то пошло не по плану...</p>}
       {!items.length && search && <p>Ничего не найдено...</p>}
-      {items.length && <FilmItems items={items} />}
+      {items.length> 0  && <FilmItems items={items} />}
     </div>
   )
 }

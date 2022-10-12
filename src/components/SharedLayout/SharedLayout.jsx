@@ -1,12 +1,15 @@
+import Loading from 'components/Loading/Loading'
 import Navbar from 'components/Navbar/Navbar'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
 export default function SharedLayout () {
   return (
     <div>
-          <Navbar />
-          <Outlet/>
+      <Navbar />
+      <Suspense fallback={Loading}>
+        <Outlet/>
+      </Suspense>
     </div>
   )
 }
