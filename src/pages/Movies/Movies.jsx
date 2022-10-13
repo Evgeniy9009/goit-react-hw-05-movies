@@ -16,20 +16,18 @@ export default function Movies() {
   const [error, setError] = useState(null)
 
   const [searchParams, setSearchParams] = useSearchParams()
-  console.log("searchParams", searchParams)
-
+ 
   const searchQuery = searchParams.get("searchQuery")
 
 
   useEffect(() => {
-    if (!searchQuery  ) { return }
-    // || search.length ===0
+    if (!searchQuery || searchQuery.length ===0  ) { return }
     const fetchPosts = async () => {
       try {
         setLoading(true)
         const data = await searchPosts(searchQuery)
         setItems(data.results)
-        console.log(data.results)
+        // console.log(data.results)
       } catch (error) {
         setError(error)
       } finally {
@@ -47,7 +45,7 @@ export default function Movies() {
 
   return (
     <div>
-      <MoviesForm onSubmit={onSearch} />
+      <MoviesForm onSubmit={onSearch} searchQuery={searchQuery} />
       {loading && <Loading />}
       {error && <p>Что-то пошло не по плану...</p>}
       {!items.length && searchQuery && <p>Ничего не найдено...</p>}

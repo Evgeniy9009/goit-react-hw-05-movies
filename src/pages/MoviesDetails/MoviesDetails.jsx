@@ -15,7 +15,7 @@ export default function MoviesDetails() {
   const {id} = useParams()
 
   const location = useLocation()
-  console.log("location", location)
+  // console.log("location", location)
   const cameBack = location.state?.from ?? "/"
  
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function MoviesDetails() {
   
   const elements = genres?.map(({name}) => 
     <span key={nanoid()}>{name } </span>)
-  console.log(elements)
+  // console.log(elements)
 
   const URL = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"
   let res = URL + backdrop_path

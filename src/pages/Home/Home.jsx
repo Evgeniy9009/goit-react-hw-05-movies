@@ -17,7 +17,7 @@ export default function Home() {
             try {
                 const data = await getPosts()
                 const res = data.results
-                console.log("res", res)
+                // console.log("res", res)
                 setItems(res)
             } catch (error) {
                 setError(error)
@@ -29,7 +29,7 @@ export default function Home() {
         fetchPosts()
     }, [])
 
-console.log(items)
+// console.log(items)
     
     return (
         <>

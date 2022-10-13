@@ -30,13 +30,13 @@ export const getPostsById = async (id) => {
 
 export const getCast = async (id) => {
     const  {data} = await axios.get(`${URL}/3/movie/${id}/credits?api_key=${api_key}`)
-    console.log("data", data)
+    // console.log("data", data)
     return data
 }
 
 export const getReviews = async (id) => {
     const  {data} = await axios.get(`${URL}/3/movie/${id}/reviews?api_key=${api_key}`)
-    console.log("data", data)
+    // console.log("data", data)
     return data
 }
 

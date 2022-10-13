@@ -9,7 +9,7 @@ export default function Cast() {
   const [error, setError] = useState(null)
   
   const { id } = useParams()
-  console.log(id)
+  // console.log(id)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -17,7 +17,7 @@ export default function Cast() {
       try {
         setError(null)
         const data = await getCast(id)
-        console.log("data", data)
+        // console.log("data", data)
         setState(data.cast)
       } catch (error) {
         setError(error)
@@ -28,18 +28,15 @@ export default function Cast() {
     fetchPosts()
   }, [id])
   
-  console.log("state", state)
+  // console.log("state", state)
 
   let elements = null
   
   if (state) {
     elements = state.map(({ name, id }) => 
       <li key={id}>{name}</li> 
-  )
-  }
-  
-    console.log("state", state)
-  
+  )}
+    // console.log("state", state)
   return (
     <div>
       {loading && <Loading />}

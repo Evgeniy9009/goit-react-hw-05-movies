@@ -10,7 +10,7 @@ export default function Revievs() {
     const [error, setError] = useState(null)
   
   const {id} = useParams()
-  console.log(id)
+  // console.log(id)
 
     useEffect(() => {
       const fetchPosts = async () => {
@@ -18,7 +18,7 @@ export default function Revievs() {
           try {
             setError(null)            
             const data = await getReviews(id)
-            console.log("data", data)
+            // console.log("data", data)
             setState(data.results)
           } catch (error) {
               setError(error)
@@ -36,7 +36,7 @@ export default function Revievs() {
 
         </li>)
   
-  console.log("state", state)
+  // console.log("state", state)
 
 
 

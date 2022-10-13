@@ -7,7 +7,7 @@ export default function SharedLayout () {
   return (
     <div>
       <Navbar />
-      <Suspense fallback={Loading}>
+      <Suspense fallback={<Loading/>}>
         <Outlet/>
       </Suspense>
     </div>

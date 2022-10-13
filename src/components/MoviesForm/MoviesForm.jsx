@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import PropTypes from "prop-types"
 
 
-export default function MoviesForm({value, onSubmit}) {
-  const [search, setSearch] = useState("")
+export default function MoviesForm({onSubmit, searchQuery}) {
+  const [search, setSearch] = useState(searchQuery ?? "")
 
 
+  
   const handleChange = (e) => {
     const { value } = e.target
     setSearch(value)
@@ -27,4 +29,8 @@ export default function MoviesForm({value, onSubmit}) {
         <button type='submit' onClick={handleSubmit}>Search</button>
     </form>
   )
+}
+MoviesForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string
 }
